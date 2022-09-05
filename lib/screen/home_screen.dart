@@ -20,7 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ElevatedButton(onPressed: (){}, child: Text("test1")),
+            ElevatedButton(onPressed: (){
+              Navigator.pushNamed(context, '/dex');
+            }, child: Text("test1")),
             ElevatedButton(onPressed: (){}, child: Text("test2")),
           ],
         ),

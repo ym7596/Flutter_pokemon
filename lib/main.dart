@@ -1,4 +1,5 @@
 import 'package:ddurpoke/screen/home_screen.dart';
+import 'package:ddurpoke/screen/poke_dex.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,11 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/dex': (context) => PokeDex(),
+      },
     );
   }
 }
