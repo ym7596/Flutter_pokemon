@@ -20,13 +20,19 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ElevatedButton(onPressed: (){
-              Navigator.pushNamed(context, '/dex');
-            }, child: Text("test1")),
-            ElevatedButton(onPressed: (){}, child: Text("test2")),
+           _RouteButton('/dex', '도감보기'),
+            _RouteButton('/compare', '비교하기'),
           ],
         ),
       ),
     );
+
   }
+  Widget _RouteButton(String where, String txt){
+
+    return ElevatedButton(onPressed: (){
+      Navigator.pushNamed(context, where);
+    }, child: Text(txt));
+  }
+
 }
