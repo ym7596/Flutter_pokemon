@@ -1,3 +1,4 @@
+import 'package:ddurpoke/screen/compare_screen.dart';
 import 'package:ddurpoke/screen/home_screen.dart';
 import 'package:ddurpoke/screen/poke_dex.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class Home extends StatelessWidget {
       routes: {
         '/': (context) => HomeScreen(),
         '/dex': (context) => PokeDex(),
+        '/compare':(context) => CompareScreen(),
       },
     );
   }
