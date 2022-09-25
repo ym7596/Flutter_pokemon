@@ -1,3 +1,4 @@
+import 'package:ddurpoke/dataclass/pokedata_class.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
@@ -11,13 +12,19 @@ class PokeDex extends StatefulWidget {
 class _PokeDexState extends State<PokeDex> {
 
   List? _items = [];
-
-
+   //final pokeDataList = new PokeDataList();
+  List<PokeData> pokeList =[];
   Future<void> readJson() async {
     final String response = await DefaultAssetBundle.of(context).loadString("asset/pokedexsample.json");
     final data = await json.decode(response);
     setState(() {
       _items = data;
+      for(int i = 0;i< response.length;i++){
+       // pokeList.add(PokeData());
+       // pokeList[i].Num= data[i]["Num"];
+       // pokeList[i].Name_en = data[i]["Name"];
+        //print(pokeList[i].Name_en);
+      }
       print(_items![0]["Name"]);
     });
   }
