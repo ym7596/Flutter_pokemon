@@ -18,6 +18,7 @@ class Home extends StatelessWidget {
         '/': (context) => HomeScreen(),
         '/dex': (context) => PokeDex(),
         '/compare':(context) => CompareScreen(),
+
       },
     );
   }
