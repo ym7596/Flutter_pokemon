@@ -3,19 +3,21 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 
 class PokeDex extends StatefulWidget {
-  const PokeDex({Key? key}) : super(key: key);
+  static const String secondPageRouteName= "/dex";
+  final List items;
+  const PokeDex( {Key? key, required this.items}) : super(key: key);
 
   @override
   State<PokeDex> createState() => _PokeDexState();
 }
 
 class _PokeDexState extends State<PokeDex> {
-
+/*
   List? _items = [];
    //final pokeDataList = new PokeDataList();
   List<PokeData> pokeList =[];
   Future<void> readJson() async {
-    final String response = await DefaultAssetBundle.of(context).loadString("asset/pokedexsample.json");
+    final String response = await DefaultAssetBundle.of(context).loadString("asset/pokedexdata.json");
     final data = await json.decode(response);
     setState(() {
       _items = data;
@@ -29,11 +31,16 @@ class _PokeDexState extends State<PokeDex> {
     });
   }
 
-  @override
+
+  Future<void> viewImg(String url) async{
+    await Image.network(url);
+
+  }*/
+  /*@override
   void initState(){
     super.initState();
     readJson();
-  }
+  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +52,7 @@ class _PokeDexState extends State<PokeDex> {
         radius: Radius.circular(8.0),
 
         child: GridView.builder(
-          itemCount: _items!.length,
+          itemCount: widget.items.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             childAspectRatio: 8.0/10.0,
@@ -59,11 +66,11 @@ class _PokeDexState extends State<PokeDex> {
                 children: [
                   InkWell(
                     onTap: (){
-                      print(_items!.elementAt(index)["Name_ko"]);
+                      print( widget.items.elementAt(index)["Name_ko"]);
                     },
                     child:
                     Image.network(
-                      _items!.elementAt(index)["URL"].toString(),
+                      widget.items.elementAt(index)["URL"].toString(),
                     ),
                   ),
 
@@ -71,7 +78,7 @@ class _PokeDexState extends State<PokeDex> {
                     child: Container(
                       height: 50,
                       alignment: Alignment.center,
-                      child: Text(_items!.elementAt(index)["Name_ko"],
+                      child: Text(widget.items.elementAt(index)["Name_ko"],
                       style: TextStyle(fontSize: 13),
                       ),
                     ),
