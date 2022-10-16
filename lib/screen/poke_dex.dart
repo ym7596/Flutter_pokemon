@@ -12,35 +12,7 @@ class PokeDex extends StatefulWidget {
 }
 
 class _PokeDexState extends State<PokeDex> {
-/*
-  List? _items = [];
-   //final pokeDataList = new PokeDataList();
-  List<PokeData> pokeList =[];
-  Future<void> readJson() async {
-    final String response = await DefaultAssetBundle.of(context).loadString("asset/pokedexdata.json");
-    final data = await json.decode(response);
-    setState(() {
-      _items = data;
-      for(int i = 0;i< response.length;i++){
-       // pokeList.add(PokeData());
-       // pokeList[i].Num= data[i]["Num"];
-       // pokeList[i].Name_en = data[i]["Name"];
-        //print(pokeList[i].Name_en);
-      }
-      print(_items![0]["Name"]);
-    });
-  }
 
-
-  Future<void> viewImg(String url) async{
-    await Image.network(url);
-
-  }*/
-  /*@override
-  void initState(){
-    super.initState();
-    readJson();
-  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
