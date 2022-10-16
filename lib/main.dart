@@ -44,6 +44,7 @@ class _HomeState extends State<Home> {
         PokeDex.secondPageRouteName: (context) => PokeDex(items : items),
         //'/dex': (context) => PokeDex(),
         '/compare':(context) => CompareScreen(),
+
       },
     );
   }

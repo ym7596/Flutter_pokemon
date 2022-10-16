@@ -15,7 +15,18 @@ class _CompareScreenState extends State<CompareScreen> {
         title: Text('비교하기'),
 
       ),
-      body: Container(),
+      body:
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: TextField(
+              decoration: InputDecoration(
+                  labelText : 'Input'
+              ),
+            ),
+          ),
+        )
+
     );
   }
 }
