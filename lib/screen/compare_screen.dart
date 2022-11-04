@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CompareScreen extends StatefulWidget {
-  const CompareScreen({Key? key}) : super(key: key);
+  static const String comparePageRouteName = "/dinfo";
+  final List items;
+  const CompareScreen({Key? key, required this.items}) : super(key: key);
 
   @override
   State<CompareScreen> createState() => _CompareScreenState();

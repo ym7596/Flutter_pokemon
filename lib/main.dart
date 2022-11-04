@@ -39,11 +39,11 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        HomeScreen.homePageRouteName: (context) => HomeScreen(items : items),
+        '/': (context) => HomeScreen(items : items),
         //'/': (context) => HomeScreen(),
         PokeDex.secondPageRouteName: (context) => PokeDex(items : items),
         //'/dex': (context) => PokeDex(),
-        '/compare':(context) => CompareScreen(),
+        CompareScreen.comparePageRouteName:(context) => CompareScreen(items : items),
 
       },
     );
