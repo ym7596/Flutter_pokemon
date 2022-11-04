@@ -8,6 +8,13 @@ class CalculateStat extends StatefulWidget {
 }
 
 class _CalculateStatState extends State<CalculateStat> {
+
+  void AttackInfo(){
+
+  }
+
+
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
