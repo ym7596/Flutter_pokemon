@@ -1,4 +1,5 @@
 import 'package:ddurpoke/dataclass/pokedata_class.dart';
+import 'package:ddurpoke/screen/poke_card.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
@@ -38,6 +39,22 @@ class _PokeDexState extends State<PokeDex> {
                 children: [
                   InkWell(
                     onTap: (){
+                      PokeData data = new PokeData();
+                      data.Name_ko = widget.items.elementAt(index)["Name_ko"];
+                      data.hp = widget.items.elementAt(index)["H"];
+                      data.Attack = widget.items.elementAt(index)["A"];
+                      data.Defence = widget.items.elementAt(index)["B"];
+                      data.sAttack = widget.items.elementAt(index)["C"];
+                      data.sDefence= widget.items.elementAt(index)["D"];
+                      data.speed = widget.items.elementAt(index)["S"];
+                      data.imgURL = widget.items.elementAt(index)["URL"];
+                      data.Type1 = widget.items.elementAt(index)["Type1"];
+                      data.Type2 = widget.items.elementAt(index)["Type2"];
+                      data.Total = widget.items.elementAt(index)["Total"];
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PokeCard(items : data))
+                      );
                       print( widget.items.elementAt(index)["Name_ko"]);
                     },
                     child:
@@ -65,3 +82,5 @@ class _PokeDexState extends State<PokeDex> {
     );
   }
 }
+
+
