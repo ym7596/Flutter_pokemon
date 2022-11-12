@@ -13,12 +13,20 @@ class PokeCard extends StatelessWidget {
       body: Column(
         children: [
           Image.network(
-
               items.imgURL.toString()
           ),
           Myboxtext("타입 1", "타입 2"),
+          Myboxtext(items.Type1.toString(),items.Type2.toString()),
           SizedBox(),
-          makeStatName("HP","A","B","C","D","S"),
+          Text("TOTAL : "+items.Total.toString(),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+            fontSize: 30,
+
+            ),
+          ),
+          SizedBox(),
+          makeStatName("HP","공","방","특공","특방","스핏"),
           SizedBox(),
           makeStatName(
               items.hp.toString(),
@@ -28,14 +36,6 @@ class PokeCard extends StatelessWidget {
               items.sDefence.toString(),
               items.speed.toString()),
           SizedBox(),
-          Row(
-            children: [
-              makeText(items.Type1.toString(), Colors.grey),
-              makeText(items.Type2.toString(), Colors.grey)
-            ],
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          )
-
         ]
 
       ),
@@ -53,6 +53,7 @@ class PokeCard extends StatelessWidget {
 
   Widget makeStatName(String H,String A,String B,String C,String D,String S){
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Flexible(
           fit: FlexFit.loose,
@@ -86,7 +87,6 @@ class PokeCard extends StatelessWidget {
         ),
 
       ],
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     );
 
   }
@@ -95,16 +95,16 @@ class PokeCard extends StatelessWidget {
    return Row(
      children: [
        Container(
-          margin: const EdgeInsets.all(15.0),
-          padding: const EdgeInsets.all(3.0),
+          margin: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
               border: Border.all(color: Colors.blueAccent)
           ),
           child: Text(value1),
         ),
        Container(
-         margin: const EdgeInsets.all(15.0),
-         padding: const EdgeInsets.all(3.0),
+         margin: const EdgeInsets.all(10.0),
+         padding: const EdgeInsets.all(10.0),
          decoration: BoxDecoration(
              border: Border.all(color: Colors.blueAccent)
          ),

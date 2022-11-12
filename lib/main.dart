@@ -22,7 +22,8 @@ class _HomeState extends State<Home> {
 
   Future<void> readJson() async {
     final String response = await DefaultAssetBundle.of(context).loadString("asset/DexNew.json");
-    final data = await json.decode(response);
+    List data = await json.decode(response);
+
     setState(() {
       items = data;
 

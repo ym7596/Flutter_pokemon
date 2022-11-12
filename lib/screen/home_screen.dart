@@ -18,13 +18,15 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('포켓몬박사 뚜르'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
+
           children: [
-           _RouteButton('/dex', '도감보기'),
-            _RouteButton('/compare', '비교하기'),
+           _RouteButton('/dex', '포켓몬 도감'),
+
+            _RouteButton('/compare', '내구력/스피드 실능'),
           ],
         ),
       ),
@@ -32,10 +34,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   }
   Widget _RouteButton(String where, String txt){
-
-    return ElevatedButton(onPressed: (){
+  final ButtonStyle style = ElevatedButton.styleFrom(
+    textStyle: const TextStyle(fontSize: 30),
+    minimumSize: Size(100,80)
+  );
+    return ElevatedButton(
+        onPressed: (){
       Navigator.pushNamed(context, where);
-    }, child: Text(txt));
+    },
+        child: Text(txt),
+      style: style
+
+    );
   }
 
 }

@@ -14,11 +14,20 @@ class PokeDex extends StatefulWidget {
 
 class _PokeDexState extends State<PokeDex> {
 
+  FocusNode _focusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("포켓몬 도감"),
+        actions: <Widget>[
+        IconButton(onPressed: (){
+          showSearch(context: context, delegate: CustomSearchDelegate());
+        },
+
+            icon: Icon(Icons.search))
+        ],
       ),
       body: Scrollbar(
         thickness: 8.0,
@@ -37,6 +46,7 @@ class _PokeDexState extends State<PokeDex> {
               child: Column(
 
                 children: [
+
                   InkWell(
                     onTap: (){
                       PokeData data = new PokeData();
@@ -83,4 +93,32 @@ class _PokeDexState extends State<PokeDex> {
   }
 }
 
+class CustomSearchDelegate extends SearchDelegate{
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    // TODO: implement buildActions
+    return [
+      IconButton(onPressed: (){},
+          icon: Icon(Icons.clear))
+    ];
+  }
 
+  @override
+  Widget? buildLeading(BuildContext context) {
+    // TODO: implement buildLeading
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // TODO: implement buildSuggestions
+    throw UnimplementedError();
+  }
+
+}
