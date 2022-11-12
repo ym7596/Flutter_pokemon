@@ -16,14 +16,16 @@ class _PokeDexState extends State<PokeDex> {
 
   FocusNode _focusNode = FocusNode();
 
+ // List nametest = widget.items.elementAt(index)
   @override
   Widget build(BuildContext context) {
+    final List itemsname = widget.items;
     return Scaffold(
       appBar: AppBar(
         title: Text("포켓몬 도감"),
         actions: <Widget>[
         IconButton(onPressed: (){
-          showSearch(context: context, delegate: CustomSearchDelegate());
+          showSearch(context: context, delegate: CustomSearchDelegate(widget.items));
         },
 
             icon: Icon(Icons.search))
@@ -94,6 +96,10 @@ class _PokeDexState extends State<PokeDex> {
 }
 
 class CustomSearchDelegate extends SearchDelegate{
+
+
+   final List itemsname;
+  CustomSearchDelegate(this.itemsname);
   @override
   List<Widget>? buildActions(BuildContext context) {
     // TODO: implement buildActions
@@ -106,19 +112,62 @@ class CustomSearchDelegate extends SearchDelegate{
   @override
   Widget? buildLeading(BuildContext context) {
     // TODO: implement buildLeading
-    throw UnimplementedError();
+    return IconButton(
+      onPressed: (){
+        close(context,null);
+      },
+      icon: Icon(Icons.arrow_back),
+    );
   }
 
   @override
   Widget buildResults(BuildContext context) {
     // TODO: implement buildResults
-    throw UnimplementedError();
+    List<String> matchQuery = [];
+
+    //widget.items.elementAt(index)["Name_ko"]
+    for(var i = 0;i< itemsname.length;i++){
+
+      if(itemsname.elementAt(i)["Name"].toString().contains(query.toString())){
+        matchQuery.add(itemsname.elementAt(i)["Name"].toString());
+        // print(itemsname[i]..toString());
+      }
+      }
+        return ListView.builder(
+          itemCount: matchQuery.length,
+          itemBuilder: (context,index){
+            var result = matchQuery[index];
+            return ListTile(
+              title: Text(result),
+            );
+          },
+        );
+
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
     // TODO: implement buildSuggestions
-    throw UnimplementedError();
+    List<String> matchQuery = [];
+
+    //widget.items.elementAt(index)["Name_ko"]
+    for(var i = 0;i< itemsname.length;i++){
+
+      if(itemsname.elementAt(i)["Name"].toString().contains(query.toString())){
+        matchQuery.add(itemsname.elementAt(i)["Name"].toString());
+       // print(itemsname[i]..toString());
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context,index){
+        var result = matchQuery[index];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+
   }
 
 }
