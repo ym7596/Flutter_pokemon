@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 
 class RealValue{
+  //종족값
   int? hp;
   int? a;
   int? b;
@@ -10,6 +11,7 @@ class RealValue{
   int? d;
   int? speed;
 
+  //노력치
   int? hpn;
   int? an;
   int? bn;
@@ -17,6 +19,7 @@ class RealValue{
   int? dn;
   int? sn;
 
+  //개체값
   int? hpg;
   int? ag;
   int? bg;
